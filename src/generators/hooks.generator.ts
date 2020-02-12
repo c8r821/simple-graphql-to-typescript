@@ -86,9 +86,9 @@ export const createVueApolloHook = ({
     type,
   });
 
-  const TOptions = `Use${typeNameUpper}Options<{${methodName}: ${returnedTypeDisplay}}${
+  const TOptions = `{${methodName}: ${returnedTypeDisplay}}${
     hasArgs ? ', ' + methodArgsType : ''
-  }>`;
+  }`;
   const vueApolloParams = `variables?: ${methodArgsType} | Ref<${methodArgsType}> | ReactiveFunction<${methodArgsType}>, options?: ${TOptions} | Ref<${TOptions}> | ReactiveFunction<${TOptions}>`;
 
   let useHookOutput = `return use${typeNameUpper}<${TOptions}>(${typeNameLower}, variables, options);`;
